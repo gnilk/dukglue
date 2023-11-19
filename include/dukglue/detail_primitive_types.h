@@ -25,6 +25,7 @@ namespace dukglue {
 					duk_int_t type_idx = duk_get_type(ctx, arg_idx); \
 					duk_error(ctx, DUK_RET_TYPE_ERROR, "Argument %d: expected " #TYPE ", got %s", arg_idx, detail::get_type_name(type_idx)); \
 				} \
+				return {}; \
 			} \
 			\
 			template<typename FullT> \
@@ -90,6 +91,7 @@ namespace dukglue {
 					duk_int_t type_idx = duk_get_type(ctx, arg_idx);
 					duk_error(ctx, DUK_RET_TYPE_ERROR, "Argument %d: expected string, got %s", arg_idx, detail::get_type_name(type_idx));
 				}
+				return nullptr;
 			}
 
 			template<typename FullT>
